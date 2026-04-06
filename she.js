@@ -1,39 +1,48 @@
-/* TYPING EFFECT */
+document.addEventListener("DOMContentLoaded", () => {
+  const words = [
+    "Khushboo Shailendra Yadav",
+    "Web Developer",
+    "Programmer",
+    "Designer",
+    "Creator",
+    "Frontend Developer",
+  ];
 
-const text = ["Frontend Developer", "Web Designer", "JavaScript Learner"];
+  let i = 0;
+  let j = 0;
+  let deleting = false;
 
-let count = 0;
-let index = 0;
-let currentText = "";
-let letter = "";
+  const el = document.querySelector(".typing");
 
-(function type() {
-  if (count === text.length) {
-    count = 0;
-  }
+  function typeEffect() {
+    if (!el) return;
 
-  currentText = text[count];
-  letter = currentText.slice(0, ++index);
+    let current = words[i];
 
-  document.querySelector(".typing").textContent = letter;
-
-  if (letter.length === currentText.length) {
-    count++;
-    index = 0;
-    setTimeout(type, 1000);
-  } else {
-    setTimeout(type, 80);
-  }
-})();
-
-/* SCROLL ANIMATION */
-
-window.addEventListener("scroll", () => {
-  document.querySelectorAll(".skill-box,.project-card").forEach((el) => {
-    let pos = el.getBoundingClientRect().top;
-    if (pos < window.innerHeight - 100) {
-      el.style.opacity = "1";
-      el.style.transform = "translateY(0)";
+    // typing
+    if (!deleting) {
+      el.textContent = current.substring(0, j++);
     }
-  });
+    // deleting
+    else {
+      el.textContent = current.substring(0, j--);
+    }
+
+    // ✅ FULL SENTENCE STOP FOR 2 SEC
+    if (!deleting && j === current.length + 1) {
+      deleting = true;
+      setTimeout(typeEffect, 2000); // pause
+      return;
+    }
+
+    // move to next word
+    if (deleting && j === 0) {
+      deleting = false;
+      i = (i + 1) % words.length;
+    }
+
+    setTimeout(typeEffect, deleting ? 40 : 70);
+  }
+
+  typeEffect();
 });
