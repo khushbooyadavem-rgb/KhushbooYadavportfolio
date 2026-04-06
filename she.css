@@ -1,0 +1,119 @@
+body {
+  background: #050505;
+  color: white;
+  scroll-behavior: smooth;
+  font-family: Segoe UI;
+}
+img {
+  height: 220px;
+  width: 220px;
+  border-radius: 50%;
+}
+
+/* GLASS NAVBAR */
+.glass-nav {
+  background: rgba(0, 0, 0, 0.5);
+  backdrop-filter: blur(12px);
+}
+
+.nav-link {
+  color: white !important;
+  margin-left: 20px;
+}
+
+.nav-link:hover {
+  color: #00ffd5 !important;
+}
+
+/* LOGO */
+/* ================= PROFILE IMAGE ================= */
+
+.profile-img {
+  width: 220px;
+  height: 220px;
+
+  object-fit: cover; /* face stretch nahi hoga */
+  object-position: center; /* face center me rahega */
+
+  border-radius: 50%;
+  border: 3px solid #00ffd5;
+
+  padding: 4px;
+  background: #000;
+
+  transition: 0.4s ease;
+  cursor: pointer;
+
+  box-shadow:
+    0 0 20px rgba(0, 255, 213, 0.5),
+    0 0 40px rgba(0, 255, 213, 0.2);
+}
+
+/* HOVER EFFECT */
+.profile-img:hover {
+  transform: scale(1.05);
+  box-shadow:
+    0 0 30px #00ffd5,
+    0 0 60px rgba(0, 255, 213, 0.6);
+}
+
+/* MOBILE RESPONSIVE */
+@media (max-width: 768px) {
+  .profile-img {
+    width: 160px;
+    height: 160px;
+  }
+}
+
+/* HERO */
+.hero {
+  height: 100vh;
+  background: linear-gradient(135deg, #000, #0b0b0b);
+}
+
+.hero span {
+  color: #00ffd5;
+}
+
+/* BUTTON */
+.btn-glow {
+  background: #00ffd5;
+  color: black;
+  padding: 12px 30px;
+  border-radius: 30px;
+  font-weight: bold;
+  transition: 0.3s;
+}
+
+.btn-glow:hover {
+  box-shadow: 0 0 25px #00ffd5;
+  transform: scale(1.05);
+}
+
+/* SKILLS */
+.skill-box {
+  background: #111;
+  padding: 30px;
+  text-align: center;
+  border-radius: 12px;
+  transition: 0.3s;
+}
+
+.skill-box:hover {
+  background: #00ffd5;
+  color: black;
+  transform: translateY(-10px);
+}
+
+/* PROJECT */
+.project-card {
+  background: #111;
+  color: white;
+  transition: 0.3s;
+  border: none;
+}
+
+.project-card:hover {
+  transform: translateY(-12px);
+  box-shadow: 0 0 20px #00ffd5;
+}
